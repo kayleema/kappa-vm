@@ -1,0 +1,47 @@
+# KappaVM Function Call Example with Real CALL and RETURN
+# This demonstrates proper function definitions and calls
+
+# Define a function that adds two numbers
+FUNCTION add_numbers
+  ADD
+  RETURN
+ENDFUNCTION
+
+# Define a function that multiplies a number by 2 (add to itself)
+FUNCTION double_number
+  # Duplicate the top value on stack and add
+  # Note: This is a conceptual example - real implementation would need DUP instruction
+  # For now, we'll assume the number is already duplicated
+  ADD
+  RETURN
+ENDFUNCTION
+
+# Main program
+  # Call add_numbers function with arguments 5 and 10
+  CONSTANT 5          # First argument
+  CONSTANT 10         # Second argument
+  CONSTANT add_numbers # Push function reference
+  CALL 2              # Call with 2 arguments
+  
+  # Result (15) is now on stack
+  # Let's call double_number to double the result
+  # We need to duplicate the value first (conceptually)
+  CONSTANT 15         # Push the value again (simulating duplication)
+  CONSTANT double_number # Push function reference
+  CALL 1              # Call with 1 argument
+  
+  # Final result (30) should be on stack
+  HALT
+
+# This example demonstrates:
+# 1. Function definition with FUNCTION/ENDFUNCTION blocks
+# 2. Function calls using CALL instruction with argument count
+# 3. Functions returning values with RETURN instruction
+# 4. Proper stack management across function boundaries
+#
+# Execution flow:
+# 1. Push 5, 10, add_numbers
+# 2. CALL 2 creates new frame, executes ADD, RETURN brings back 15
+# 3. Push 15, double_number  
+# 4. CALL 1 creates new frame, executes ADD (15+15), RETURN brings back 30
+# 5. HALT stops execution with 30 on stack

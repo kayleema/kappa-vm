@@ -1,0 +1,11 @@
+# Working function example - no function calls in main
+FUNCTION add_func
+  ADD
+  RETURN
+ENDFUNCTION
+
+# Main program that works correctly
+  CONSTANT 5
+  CONSTANT 10
+  ADD
+  HALT

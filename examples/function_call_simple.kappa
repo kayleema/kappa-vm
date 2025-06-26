@@ -1,0 +1,18 @@
+# KappaVM Function Call Example - Correct Stack Order
+# This demonstrates proper function call stack ordering
+
+# Define a function that adds two numbers
+FUNCTION add_numbers
+  ADD
+  RETURN
+ENDFUNCTION
+
+# Main program with correct calling convention
+  # Call add_numbers function with arguments 5 and 10
+  CONSTANT add_numbers # Push function reference FIRST
+  CONSTANT 5          # Push first argument
+  CONSTANT 10         # Push second argument
+  CALL 2              # Call with 2 arguments
+  
+  # Result (15) is now on stack
+  HALT

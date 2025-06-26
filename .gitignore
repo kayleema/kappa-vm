@@ -3,3 +3,10 @@ cmake-build-debug/
 
 .idea
 .vscode
+
+# Compiled bytecode files
+*.kbc
+
+# Test executables and temporary files
+test_programs/test_program_functions
+test_programs/test_manual_function
